@@ -11,8 +11,8 @@
 @interface CalculatorBrain : NSObject
 
 //this is the getter and setter
--(void)pushOperand:(double)operand;
--(double)performOperation:(NSString *)operation;
+-(void)pushOperand:(NSString *)operand;
+-(NSNumber *)performOperation:(NSString *)operation;
 
 -(void)emptyStack;
 

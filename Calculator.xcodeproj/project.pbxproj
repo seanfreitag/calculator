@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35CDFD7F2DECFB6C8CDF0329 /* NSNumber+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDF3D6B329C54A794170D7 /* NSNumber+Functions.m */; };
 		C5600E44178DBE0A00AD10A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600E43178DBE0A00AD10A9 /* UIKit.framework */; };
 		C5600E46178DBE0A00AD10A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600E45178DBE0A00AD10A9 /* Foundation.framework */; };
 		C5600E48178DBE0A00AD10A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600E47178DBE0A00AD10A9 /* CoreGraphics.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35CDF15407128A5608252FC2 /* NSNumber+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Functions.h"; sourceTree = "<group>"; };
+		35CDF3D6B329C54A794170D7 /* NSNumber+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Functions.m"; sourceTree = "<group>"; };
 		C5600E40178DBE0A00AD10A9 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5600E43178DBE0A00AD10A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5600E45178DBE0A00AD10A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +97,8 @@
 				C5600E5E178DBE0A00AD10A9 /* CalculatorViewController.h */,
 				C5600E5F178DBE0A00AD10A9 /* CalculatorViewController.m */,
 				C5600E4A178DBE0A00AD10A9 /* Supporting Files */,
+				35CDF3D6B329C54A794170D7 /* NSNumber+Functions.m */,
+				35CDF15407128A5608252FC2 /* NSNumber+Functions.h */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				C5600E54178DBE0A00AD10A9 /* CalculatorAppDelegate.m in Sources */,
 				C5600E60178DBE0A00AD10A9 /* CalculatorViewController.m in Sources */,
 				C5600E68178EF12F00AD10A9 /* CalculatorBrain.m in Sources */,
+				35CDFD7F2DECFB6C8CDF0329 /* NSNumber+Functions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

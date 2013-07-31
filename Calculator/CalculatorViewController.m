@@ -12,7 +12,6 @@
 
 @interface CalculatorViewController ()
 
-@property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
 @property (nonatomic, strong) CalculatorBrain *brain;
 @property (weak, nonatomic) IBOutlet UILabel *history;
 @property (weak, nonatomic) IBOutlet UILabel *display;
@@ -29,31 +28,26 @@
 
 - (IBAction)digitPressed:(UIButton *)sender {
     NSString *digit = sender.currentTitle;
-    if (self.userIsInTheMiddleOfEnteringANumber) {
-        self.display.text = [self.display.text stringByAppendingString:digit];
-    } else {
-        self.display.text = digit;
-        self.userIsInTheMiddleOfEnteringANumber = YES;
-    }
-    self.history.text = self.history.text = [self.history.text stringByAppendingString:digit];
+    self.display.text = [self.display.text stringByAppendingString:digit];
 }
 
 - (IBAction)operationPressed:(UIButton *)sender {
-    if (self.userIsInTheMiddleOfEnteringANumber)
+    if ([self.display.text length] > 0)
         [self enterPressed];
-    double result = [self.brain performOperation:sender.currentTitle];
-    NSString *resultString = [NSString stringWithFormat:@"%g", result];
-    self.display.text = resultString;
+    NSNumber *result = [self.brain performOperation:sender.currentTitle];
+    self.history.text = [NSString stringWithFormat:@"%@ %@ = %@", self.history.text, sender.currentTitle, result];
 }
 
 - (IBAction)enterPressed {
-    [self.brain pushOperand:[self.display.text doubleValue]];
-    self.userIsInTheMiddleOfEnteringANumber = NO;
-    self.history.text = [self.history.text stringByAppendingString:@" "];
-    self.history.text = [self.history.text stringByAppendingString:self.display.text];
+    [self.brain pushOperand:self.display.text];
+    self.history.text = [NSString stringWithFormat:@"%@ %@", self.history.text, self.display.text];
+    self.display.text = @"";
 }
 
 - (IBAction)clearPressed:(UIButton *)sender {
+    self.history.text = @"";
+    self.display.text = @"";
+    [self.brain emptyStack];
 }
 
 - (IBAction)backspacePressed:(UIButton *)sender {
