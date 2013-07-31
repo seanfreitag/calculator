@@ -31,11 +31,25 @@
     self.display.text = [self.display.text stringByAppendingString:digit];
 }
 
+- (NSString *)sizeHistoryToFit:(NSString *)suggestedHistory {
+    CGSize historyTextSize = [suggestedHistory sizeWithFont:self.history.font];
+    CGSize availableHistorySize = self.history.frame.size;
+    if (historyTextSize.width > availableHistorySize.width) {
+        NSArray *separatedString = [suggestedHistory componentsSeparatedByString:@"="];
+        NSUInteger splitCount = [separatedString count];
+        NSArray *shortenedHistory = [separatedString subarrayWithRange:NSMakeRange(1, splitCount - 1)];
+        return [self sizeHistoryToFit:[shortenedHistory componentsJoinedByString:@"="]];
+    }
+    
+    return suggestedHistory;
+}
+
 - (IBAction)operationPressed:(UIButton *)sender {
     if ([self.display.text length] > 0)
         [self enterPressed];
     NSNumber *result = [self.brain performOperation:sender.currentTitle];
-    self.history.text = [NSString stringWithFormat:@"%@ %@ = %@", self.history.text, sender.currentTitle, result];
+    NSString *history = [NSString stringWithFormat:@"%@ %@ = %@", self.history.text, sender.currentTitle, result];
+    self.history.text = [self sizeHistoryToFit:history];
 }
 
 - (IBAction)enterPressed {
