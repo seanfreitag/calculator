@@ -10,4 +10,16 @@
 
 @implementation CalculatorBrain
 
+- (void)pushOperand:(double)operand {
+
+}
+
+- (double)performOperation:(NSString *)operation {
+    return 0;
+}
+
+- (void)emptyStack {
+
+}
+
 @end
